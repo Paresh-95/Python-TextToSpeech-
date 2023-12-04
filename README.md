@@ -1,6 +1,6 @@
 # Text-to-Speech Web App
 
-This is a simple web application built with Flask that converts text to speech. It uses the `pyttsx3` library to generate audio from the provided text.
+This is a simple web application built with Flask that converts text to speech. It uses the `Gtts` library to generate audio from the provided text.
 
 ## Features
 
@@ -10,7 +10,7 @@ This is a simple web application built with Flask that converts text to speech. 
 
 ## Prerequisites
 
-- Python 3.x
+- Python 3.11
 - Flask
 - Gtts
 
@@ -19,27 +19,27 @@ This is a simple web application built with Flask that converts text to speech. 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/Paresh-95/Python-TextToSpeech-.git
 cd your TextToSpeech GTTS
 
-2. Create a virtual environment (recommended):
+2. Create a virtual environment (recommended): (Skip For .Exe)
 
 ```bash
 python -m venv venv
 
 
-3.Install the required packages:
+3.Install the required packages: (Skip For .Exe)
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt  
 
 
 Usage
 
-4.Run the application:
+4.Run the application: 
 
-```bash
-python app.py
+```bash 
+python app.py   (Skip For .Exe)
 
 
     1.Open your web browser and navigate to http://localhost:5000/.
@@ -50,7 +50,7 @@ python app.py
 OR
 
 cd EXE FILE
-run TextToSpeech.exe
+run TextToSpeech.exe 
 
 
 Contributing
@@ -61,7 +61,7 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-### requirements.txt
+### requirements.txt (Skip For .Exe)
 
 To create a `requirements.txt` file, you can use the `pip freeze` command to list the installed packages in your virtual environment. Run the following command while your virtual environment is activated:
 
