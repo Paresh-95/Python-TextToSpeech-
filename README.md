@@ -25,7 +25,7 @@ This is a simple web application built with Flask that converts text to speech. 
     run TextToSpeech.exe 
 
 
-2) To Run By installing Flask
+2) To Run By Installing Flask
 
 1. Clone the repository:
 
