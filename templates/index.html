@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Text to Speech</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        
+        .scrollable-container {
+            max-height: auto;
+            overflow-y: auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Speech</h1>
+       
+        <form id="speakForm" method="POST" action="/speak">
+            <div class="form-group">
+                <textarea name="text" id="inputText" rows="5" cols="40" class="input-text" placeholder="Enter New Text Here"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="lang" class="label-lang">Select a Language:</label>
+                <select name="lang" id="lang" class="select-lang">
+                    {% for voice in voices %}
+                        <option value="{{ voice.lang }}">{{ voice.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Speak" class="speak-button" onclick="submitForm()">
+                <div id="speakLoading" class="loading-overlay speak-loading">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </form>
+
+        <form id="reloadForm" method="POST" action="/reload">
+            <input type="image" src="../static/refresh.png" alt="Reload" class="reload-image" height="30" />
+        </form>
+
+        <div class="form-group">
+            <a href="{{ url_for('download', filename=os.path.basename(audio_file)) }}" class="download-link">
+                Download Audio
+                <div id="downloadLoading" class="loading-overlay download-loading">
+                    <div class="loading-spinner"></div>
+                </div>
+            </a>
+        </div>
+            
+        
+
+        <div class="audio-group">
+            
+            <audio controls class="audio-player" id="audioPlayer" onplay="document.getElementById('loading').style.display='block'" oncanplaythrough="hideLoading()" autoplay>
+                <source src="{{ url_for('static', filename=audio_file) }}" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="scrollable-container">
+            <div class="translation-result">
+                {% if lang == 'en' %}
+                    <p>Original Text (English): {{ request.form.get('text') }}</p>
+                {% elif lang == 'mr' %}
+                    <p>Original Text (Marathi): {{ request.form.get('text') }}</p>
+                {% elif lang == 'hi' %}
+                    <p>Original Text (Hindi): {{ request.form.get('text') }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+
+
+    </div>
+    <script>   
+        function showLoading() {
+            document.getElementById("speakLoading").style.display = "block";
+        }
+        function hideLoading() {
+            document.getElementById("loading").style.display = "none";
+        } 
+        function submitForm() {       
+            document.getElementById("audioPlayer").pause();          
+            showLoading();
+        }
+  
+        document.querySelector(".download-link").addEventListener("click", function () {
+            document.getElementById("downloadLoading").style.display = "block";
+        });
+    </script>
+</body>
+</html>
