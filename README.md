@@ -18,8 +18,9 @@ This is a simple web application built with Flask that converts text to speech. 
 
 1) To Run by .EXE
 
-cd EXE FILE
-run TextToSpeech.exe 
+    ```bash
+    cd EXE FILE
+    run TextToSpeech.exe 
 
 
 2) To Run By installing Flask
