@@ -19,6 +19,8 @@ This is a simple web application built with Flask that converts text to speech. 
 1) To Run by .EXE
 
     ```bash
+    git clone https://github.com/Paresh-95/Python-TextToSpeech-.git
+    cd your TextToSpeech GTTS
     cd EXE FILE
     run TextToSpeech.exe 
 
